@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>TerraformAgentDbor.Database</name>
+    </assembly>
+    <members>
+        <member name="T:TerraformAgentDbor.Database.DdlRepository">
+            <inheritdoc />
+        </member>
+        <member name="M:TerraformAgentDbor.Database.DdlRepository.#ctor(TerraformAgentDbor.Database.Oracle.IDatabaseHelper)">
+            <summary>
+            Creates new instance of <see cref="T:TerraformAgentDbor.Database.DdlRepository"/>
+            </summary>
+            <param name="databaseHelper">Instance of <see cref="T:TerraformAgentDbor.Database.Oracle.IDatabaseHelper"/></param>
+        </member>
+        <member name="M:TerraformAgentDbor.Database.DdlRepository.Execute(System.String)">
+            <inheritdoc />
+        </member>
+        <member name="T:TerraformAgentDbor.Database.Oracle.DatabaseHelper">
+            <summary>
+            Provides abstraction from ADO and connection management by giving helper function for database operations
+            </summary>
+        </member>
+        <member name="M:TerraformAgentDbor.Database.Oracle.DatabaseHelper.#ctor(System.Data.Common.DbProviderFactory,System.Func{System.Data.IDbConnection,System.Threading.Tasks.Task{System.Data.IDbConnection}})">
+            <summary>
+            Creates new instance of <see cref="T:TerraformAgentDbor.Database.DdlRepository"/>
+            </summary>
+            <param name="dbProviderFactory">Instance of DB Provider Factory used to create ADO objects like Command, Connection, Reader, etc.</param>
+            <param name="openConnectionFunc">Function which accepts Connection, returns configured and opened connection</param>
+        </member>
+        <member name="T:TerraformAgentDbor.Database.Oracle.IDatabaseHelper">
+            <summary>
+            Defines an interface for accessing Oracle Helper services
+            </summary>
+        </member>
+        <member name="T:Database.TableRepository">
+            <inheritdoc />
+        </member>
+        <member name="M:Database.TableRepository.GetTablesAsync(System.String,System.Nullable{System.Int32},System.Nullable{System.Int32})">
+            <inheritdoc />
+        </member>
+    </members>
+</doc>

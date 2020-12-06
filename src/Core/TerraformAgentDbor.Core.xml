@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>TerraformAgentDbor.Core</name>
+    </assembly>
+    <members>
+        <member name="T:TerraformAgentDbor.Core.TablesManager">
+            <summary>
+            Executes Create, Read, Update and Delete (CRUD) operations on database tables
+            </summary>
+        </member>
+    </members>
+</doc>

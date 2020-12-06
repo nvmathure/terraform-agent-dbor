@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>TerraformAgentDbor.Contracts</name>
+    </assembly>
+    <members>
+        <member name="T:Contracts.Table">
+            <summary>
+            Represents instance of database table
+            </summary>
+        </member>
+    </members>
+</doc>

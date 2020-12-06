@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>TerraformAgentDbor.DatabaseInterface</name>
+    </assembly>
+    <members>
+        <member name="T:TerraformAgentDbor.DatabaseInterface.Ddl.IDdlRepository">
+            <summary>
+            Represents repository to perform DDL Operations on Table
+            </summary>
+        </member>
+        <member name="M:TerraformAgentDbor.DatabaseInterface.Ddl.IDdlRepository.Execute(System.String)">
+            <summary>
+            Executes DDL against the database
+            </summary>
+            <param name="ddlStatement">DDL Statement to be executed</param>
+            <returns>Success Task when completed successfully</returns>
+        </member>
+        <member name="T:TerraformAgentDbor.DatabaseInterface.Tables.ITablesRepository">
+            <summary>
+            Represents repository to perform Read Operations on Table
+            </summary>
+        </member>
+        <member name="M:TerraformAgentDbor.DatabaseInterface.Tables.ITablesRepository.GetTablesAsync(System.String,System.Nullable{System.Int32},System.Nullable{System.Int32})">
+            <summary>
+            Gets list of tables for given schema
+            </summary>
+            <param name="schemaName">Name of database schema to search for tables, when left blank current user's schema is used.</param>
+            <param name="pageSize">Number of objects to return in response. Default is 10</param>
+            <param name="pageNumber">Page number to be returned. Default is 1</param>
+            <returns>Enurable of <see cref="T:TerraformAgentDbor.DatabaseInterface.Tables.TableDto"/> containing table information</returns>
+        </member>
+        <member name="T:TerraformAgentDbor.DatabaseInterface.Tables.TableDto">
+            <summary>
+            Represents Database Table Data Transformation Object (DTO)
+            </summary>
+        </member>
+        <member name="P:TerraformAgentDbor.DatabaseInterface.Tables.TableDto.Name">
+            <summary>
+            Gets/Sets name of table
+            </summary>
+        </member>
+    </members>
+</doc>
