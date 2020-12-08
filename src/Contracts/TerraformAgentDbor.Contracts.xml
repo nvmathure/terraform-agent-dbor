@@ -4,9 +4,14 @@
         <name>TerraformAgentDbor.Contracts</name>
     </assembly>
     <members>
-        <member name="T:Contracts.Table">
+        <member name="T:Contracts.TableDefinition">
             <summary>
             Represents instance of database table
+            </summary>
+        </member>
+        <member name="P:Contracts.TableDefinition.Name">
+            <summary>
+            Gets/Sets name of table
             </summary>
         </member>
     </members>

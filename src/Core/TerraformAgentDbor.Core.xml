@@ -4,10 +4,38 @@
         <name>TerraformAgentDbor.Core</name>
     </assembly>
     <members>
+        <member name="T:TerraformAgentDbor.Core.ITablesManager">
+            <summary>
+            Defines a contract for Table Manager
+            </summary>
+        </member>
+        <member name="M:TerraformAgentDbor.Core.ITablesManager.GetAsync(System.String,System.Int32,System.Int32)">
+            <summary>
+            Gets list of tables
+            </summary>
+            <param name="schemaName">Name of schema</param>
+            <param name="limit">Number of tables to return on each page, defaults to 10</param>
+            <param name="offset">Page Number, defaults to 1</param>
+            <returns>List of tables</returns>
+        </member>
+        <member name="M:TerraformAgentDbor.Core.ITablesManager.Create(System.String,Contracts.TableDefinition)">
+            <summary>
+            Creates new table in database
+            </summary>
+            <param name="schemanName">Schema of the table</param>
+            <param name="table"></param>
+            <returns></returns>
+        </member>
         <member name="T:TerraformAgentDbor.Core.TablesManager">
             <summary>
             Executes Create, Read, Update and Delete (CRUD) operations on database tables
             </summary>
+        </member>
+        <member name="M:TerraformAgentDbor.Core.TablesManager.Create(System.String,Contracts.TableDefinition)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TerraformAgentDbor.Core.TablesManager.GetAsync(System.String,System.Int32,System.Int32)">
+            <inheritdoc/>
         </member>
     </members>
 </doc>

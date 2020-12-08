@@ -4,5 +4,68 @@
         <name>TerraformAgentDbor.WebApp</name>
     </assembly>
     <members>
+        <member name="T:TerraformAgentDbor.WebApp.Controllers.TablesController">
+            <summary>
+            Provides CRUD Operation APIs for Database Tables
+            </summary>
+        </member>
+        <member name="M:TerraformAgentDbor.WebApp.Controllers.TablesController.#ctor(TerraformAgentDbor.Core.ITablesManager)">
+            <summary>
+            Creates new instance of <see cref="T:TerraformAgentDbor.WebApp.Controllers.TablesController"/>
+            </summary>
+            <param name="tablesManager">Instance of <see cref="T:TerraformAgentDbor.Core.ITablesManager"/></param>
+        </member>
+        <member name="M:TerraformAgentDbor.WebApp.Controllers.TablesController.Read(System.String,System.Int32,System.Int32)">
+            <summary>
+            Gets list of tables
+            </summary>
+            <returns>Enumerable with list of table</returns>
+        </member>
+        <member name="M:TerraformAgentDbor.WebApp.Controllers.TablesController.Create(System.String,System.String,Contracts.TableDefinition)">
+            <summary>
+            Creates new Table
+            </summary>
+            <returns><see cref="T:Microsoft.AspNetCore.Mvc.OkResult"/> if table was created successfully. <see cref="T:Microsoft.AspNetCore.Mvc.BadRequestObjectResult"/> or <see cref="T:Microsoft.AspNetCore.Mvc.StatusCodeResult"/> depending on error</returns>
+        </member>
+        <member name="T:TerraformAgentDbor.WebApi.Program">
+            <summary>
+            Startup Class for the Application
+            </summary>
+        </member>
+        <member name="M:TerraformAgentDbor.WebApi.Program.Main(System.String[])">
+            <summary>
+            Startup Function for the Application
+            </summary>
+            <param name="args">Commandline Argument</param>
+        </member>
+        <member name="T:TerraformAgentDbor.WebApi.Startup">
+            <summary>
+            Startup Class for Terraform Agent for Oracle
+            </summary>
+        </member>
+        <member name="M:TerraformAgentDbor.WebApi.Startup.#ctor(Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            Creates new instance of startup
+            </summary>
+            <param name="configuration">Instance of <see cref="T:Microsoft.Extensions.Configuration.IConfiguration"/></param>
+        </member>
+        <member name="P:TerraformAgentDbor.WebApi.Startup.Configuration">
+            <summary>
+            Gets/Sets configurations
+            </summary>
+        </member>
+        <member name="M:TerraformAgentDbor.WebApi.Startup.ConfigureServices(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            This method gets called by the runtime. Use this method to add services to the container.
+            </summary>
+            <param name="services">Instance of <see cref="T:Microsoft.Extensions.DependencyInjection.IServiceCollection"/> for adding services to container</param>
+        </member>
+        <member name="M:TerraformAgentDbor.WebApi.Startup.Configure(Microsoft.AspNetCore.Builder.IApplicationBuilder,Microsoft.AspNetCore.Hosting.IWebHostEnvironment)">
+            <summary>
+            This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+            </summary>
+            <param name="app">Instance of <see cref="T:Microsoft.AspNetCore.Builder.IApplicationBuilder"/> to be configured</param>
+            <param name="env">Instance of <see cref="T:Microsoft.AspNetCore.Hosting.IWebHostEnvironment"/> which allows this function to get environment information</param>
+        </member>
     </members>
 </doc>

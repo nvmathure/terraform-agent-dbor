@@ -9,14 +9,21 @@ using Microsoft.Extensions.Logging;
 
 namespace TerraformAgentDbor.WebApi
 {
+    /// <summary>
+    /// Startup Class for the Application
+    /// </summary>
     public class Program
     {
+        /// <summary>
+        /// Startup Function for the Application
+        /// </summary>
+        /// <param name="args">Commandline Argument</param>
         public static void Main(string[] args)
         {
             CreateHostBuilder(args).Build().Run();
         }
 
-        public static IHostBuilder CreateHostBuilder(string[] args) =>
+        private static IHostBuilder CreateHostBuilder(string[] args) =>
             Host.CreateDefaultBuilder(args)
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
