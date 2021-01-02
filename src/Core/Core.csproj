@@ -2,8 +2,8 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
-    <AssemblyName>TerraformAgentDbor.Core</AssemblyName>
-    <RootNamespace>TerraformAgentDbor.Core</RootNamespace>
+    <AssemblyName>CloudNDevOps.TerraformAgentDbor.Core</AssemblyName>
+    <RootNamespace>CloudNDevOps.TerraformAgentDbor.Core</RootNamespace>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">

@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Contracts
+﻿namespace CloudNDevOps.TerraformAgentDbor.Contracts
 {
     /// <summary>
     /// Represents instance of database table
@@ -11,5 +9,15 @@ namespace Contracts
         /// Gets/Sets name of table
         /// </summary>
         public string Name { get; set; }
+
+        /// <summary>
+        /// Gets/Sets schema name of table
+        /// </summary>
+        public string SchemaName { get; set; }
+
+        /// <summary>
+        /// Gets/Sets list of columns
+        /// </summary>
+        public ColumnDefinition[] Columns { get; set; }
     }
 }

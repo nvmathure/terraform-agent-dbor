@@ -1,15 +1,12 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using CloudNDevOps.TerraformAgentDbor.Core;
+using Database;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 using TerraformAgentDbor.Core;
+using TerraformAgentDbor.Database.Oracle;
 
 namespace TerraformAgentDbor.WebApi
 {
@@ -37,8 +34,9 @@ namespace TerraformAgentDbor.WebApi
         /// <param name="services">Instance of <see cref="IServiceCollection"/> for adding services to container</param>
         public void ConfigureServices(IServiceCollection services)
         {
+            var databaseHelper = new DatabaseHelper();
             services.AddControllers();
-            services.AddSingleton<ITablesManager>(new TablesManager());
+            services.AddSingleton<ITablesManager>(new TablesManager(InstanceManager.Current, new TableRepository(databaseHelper)));
         }
 
         /// <summary>

@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using Contracts;
+using CloudNDevOps.TerraformAgentDbor.Contracts;
+using CloudNDevOps.TerraformAgentDbor.Core;
 using Microsoft.AspNetCore.Mvc;
-using TerraformAgentDbor.Core;
 
 namespace TerraformAgentDbor.WebApp.Controllers
 {
@@ -28,11 +28,11 @@ namespace TerraformAgentDbor.WebApp.Controllers
         /// Gets list of tables
         /// </summary>
         /// <returns>Enumerable with list of table</returns>
-        [Route("{schema}/[controller]")]
+        [Route("{schema}/{owner}/[controller]")]
         [HttpGet()]
-        public async Task<ActionResult<IEnumerable<TableDefinition>>> Read(string schema, int limit = 10, int offset = 0)
+        public async Task<ActionResult<IEnumerable<TableDefinition>>> Read(string schema, string owner, int limit = 10, int offset = 0)
         {
-            var result = await _tablesManager.GetAsync(schema, limit, offset);
+            var result = await _tablesManager.GetAsync(schema, owner, limit, offset);
             return Ok(result);
         }
 

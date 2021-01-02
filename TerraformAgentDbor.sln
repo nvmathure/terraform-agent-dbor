@@ -7,13 +7,27 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApp", "src\WebApp\WebApp
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Contracts", "src\Contracts\Contracts.csproj", "{F7CA0F0E-B7B4-4544-99A6-C2AED2583D0C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core", "src\Core\Core.csproj", "{62780B29-B06A-4478-9F64-42ED6E676443}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Core", "src\Core\Core.csproj", "{62780B29-B06A-4478-9F64-42ED6E676443}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DatabaseInterface", "src\DatabaseInterface\DatabaseInterface.csproj", "{2456C01A-CA10-442F-80BF-BFFE7E31D557}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DatabaseInterface", "src\DatabaseInterface\DatabaseInterface.csproj", "{2456C01A-CA10-442F-80BF-BFFE7E31D557}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Database", "src\Database\Database.csproj", "{BA675A1C-8476-4E0C-BBD3-3A518E546ABC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Database", "src\Database\Database.csproj", "{BA675A1C-8476-4E0C-BBD3-3A518E546ABC}"
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Contracts.Validations.Shared", "src\Contracts.Validations\Contracts.Validations.Shared.shproj", "{B982D6E8-C5DE-42C7-9920-19B1EA5B047C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UnitTests", "UnitTests", "{48780230-D8E3-40BF-8294-92EC28351E72}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Contracts.UnitTests", "src\Contracts.UnitTests\Contracts.UnitTests.csproj", "{5D793540-54FE-4005-93F4-775B2BD76A96}"
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Contracts.Serialization.Shared", "src\Contracts.Serialization.Shared\Contracts.Serialization.Shared.shproj", "{A87D7047-5114-478B-8844-A7221EFB2CA8}"
 EndProject
 Global
+	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		src\Contracts.Serialization.Shared\Contracts.Serialization.Shared.projitems*{a87d7047-5114-478b-8844-a7221efb2ca8}*SharedItemsImports = 13
+		src\Contracts.Validations\Contracts.Validations.projitems*{b982d6e8-c5de-42c7-9920-19b1ea5b047c}*SharedItemsImports = 13
+		src\Contracts.Serialization.Shared\Contracts.Serialization.Shared.projitems*{f7ca0f0e-b7b4-4544-99a6-c2aed2583d0c}*SharedItemsImports = 5
+		src\Contracts.Validations\Contracts.Validations.projitems*{f7ca0f0e-b7b4-4544-99a6-c2aed2583d0c}*SharedItemsImports = 5
+	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
@@ -39,9 +53,16 @@ Global
 		{BA675A1C-8476-4E0C-BBD3-3A518E546ABC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BA675A1C-8476-4E0C-BBD3-3A518E546ABC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BA675A1C-8476-4E0C-BBD3-3A518E546ABC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5D793540-54FE-4005-93F4-775B2BD76A96}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5D793540-54FE-4005-93F4-775B2BD76A96}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5D793540-54FE-4005-93F4-775B2BD76A96}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5D793540-54FE-4005-93F4-775B2BD76A96}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{5D793540-54FE-4005-93F4-775B2BD76A96} = {48780230-D8E3-40BF-8294-92EC28351E72}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {5EBE76C1-DDA1-4EE7-B4B4-36065F7B67AA}

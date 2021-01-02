@@ -2,8 +2,8 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
-    <AssemblyName>TerraformAgentDbor.WebApp</AssemblyName>
-    <RootNamespace>TerraformAgentDbor.WebApp</RootNamespace>
+    <AssemblyName>CloudNDevOps.TerraformAgentDbor.WebApp</AssemblyName>
+    <RootNamespace>CloudNDevOps.TerraformAgentDbor.WebApp</RootNamespace>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">

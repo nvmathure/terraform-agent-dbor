@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <doc>
     <assembly>
-        <name>TerraformAgentDbor.Database</name>
+        <name>CloudNDevOps.TerraformAgentDbor.Database</name>
     </assembly>
     <members>
         <member name="T:TerraformAgentDbor.Database.DdlRepository">
@@ -21,22 +21,74 @@
             Provides abstraction from ADO and connection management by giving helper function for database operations
             </summary>
         </member>
-        <member name="M:TerraformAgentDbor.Database.Oracle.DatabaseHelper.#ctor(System.Data.Common.DbProviderFactory,System.Func{System.Data.IDbConnection,System.Threading.Tasks.Task{System.Data.IDbConnection}})">
+        <member name="M:TerraformAgentDbor.Database.Oracle.DatabaseHelper.#ctor">
             <summary>
             Creates new instance of <see cref="T:TerraformAgentDbor.Database.DdlRepository"/>
             </summary>
-            <param name="dbProviderFactory">Instance of DB Provider Factory used to create ADO objects like Command, Connection, Reader, etc.</param>
-            <param name="openConnectionFunc">Function which accepts Connection, returns configured and opened connection</param>
+        </member>
+        <member name="M:TerraformAgentDbor.Database.Oracle.DatabaseHelper.CreateConnectionAsync(TerraformAgentDbor.DatabaseInterface.DbInstanceInfo,System.Threading.CancellationToken)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TerraformAgentDbor.Database.Oracle.DatabaseHelper.ExecuteReaderAsync(Oracle.ManagedDataAccess.Client.OracleConnection,System.String,Oracle.ManagedDataAccess.Client.OracleParameter[],System.Threading.CancellationToken)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TerraformAgentDbor.Database.Oracle.DatabaseHelper.ExecuteReaderAsync(Oracle.ManagedDataAccess.Client.OracleCommand,System.Threading.CancellationToken)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TerraformAgentDbor.Database.Oracle.DatabaseHelper.ExecuteReaderAsync(TerraformAgentDbor.DatabaseInterface.DbInstanceInfo,System.String,Oracle.ManagedDataAccess.Client.OracleParameter[],System.Threading.CancellationToken)">
+            <inheritdoc/>
         </member>
         <member name="T:TerraformAgentDbor.Database.Oracle.IDatabaseHelper">
             <summary>
             Defines an interface for accessing Oracle Helper services
             </summary>
         </member>
+        <member name="M:TerraformAgentDbor.Database.Oracle.IDatabaseHelper.CreateConnectionAsync(TerraformAgentDbor.DatabaseInterface.DbInstanceInfo,System.Threading.CancellationToken)">
+            <summary>
+            Creates new Connection, Sets Connection String and Opens Connection
+            </summary>
+            <param name="dbInstanceInfo">Instance of <see cref="T:TerraformAgentDbor.DatabaseInterface.DbInstanceInfo"/></param>
+            <param name="cancellationToken">Cancellation Token</param>
+            <returns>Instance of <see cref="T:System.Data.IDbConnection"/></returns>
+        </member>
+        <member name="M:TerraformAgentDbor.Database.Oracle.IDatabaseHelper.ExecuteReaderAsync(TerraformAgentDbor.DatabaseInterface.DbInstanceInfo,System.String,Oracle.ManagedDataAccess.Client.OracleParameter[],System.Threading.CancellationToken)">
+            <summary>
+            Executes SQL passed into parameters and returns a <see cref="T:Oracle.ManagedDataAccess.Client.OracleDataReader"/> containing result
+            </summary>
+            <param name="dbInstanceInfo">Instance of <see cref="T:TerraformAgentDbor.DatabaseInterface.DbInstanceInfo"/></param>
+            <param name="sql">SQL Statement to be Executed</param>
+            <param name="oracleParameters">Parameters used in SQL Statement</param>
+            <param name="cancellationToken">Cancellation Token</param>
+            <returns><see cref="T:Oracle.ManagedDataAccess.Client.OracleDataReader"/> containing the results of SQL Statement</returns>
+        </member>
+        <member name="M:TerraformAgentDbor.Database.Oracle.IDatabaseHelper.ExecuteReaderAsync(Oracle.ManagedDataAccess.Client.OracleConnection,System.String,Oracle.ManagedDataAccess.Client.OracleParameter[],System.Threading.CancellationToken)">
+            <summary>
+            Executes SQL passed into parameters and returns a <see cref="T:Oracle.ManagedDataAccess.Client.OracleDataReader"/> containing result
+            </summary>
+            <param name="oracleConnection">Instance of <see cref="T:Oracle.ManagedDataAccess.Client.OracleConnection"/></param>
+            <param name="sql">SQL Statement to be Executed</param>
+            <param name="oracleParameters">Parameters used in SQL Statement</param>
+            <param name="cancellationToken">Cancellation Token</param>
+            <returns><see cref="T:Oracle.ManagedDataAccess.Client.OracleDataReader"/> containing the results of SQL Statement</returns>
+        </member>
+        <member name="M:TerraformAgentDbor.Database.Oracle.IDatabaseHelper.ExecuteReaderAsync(Oracle.ManagedDataAccess.Client.OracleCommand,System.Threading.CancellationToken)">
+            <summary>
+            Executes SQL passed into parameters and returns a <see cref="T:Oracle.ManagedDataAccess.Client.OracleDataReader"/> containing result
+            </summary>
+            <param name="oracleCommand">Instance of <see cref="T:Oracle.ManagedDataAccess.Client.OracleCommand"/></param>
+            <param name="cancellationToken">Cancellation Token</param>
+            <returns><see cref="T:Oracle.ManagedDataAccess.Client.OracleDataReader"/> containing the results of SQL Statement</returns>
+        </member>
         <member name="T:Database.TableRepository">
             <inheritdoc />
         </member>
-        <member name="M:Database.TableRepository.GetTablesAsync(System.String,System.Nullable{System.Int32},System.Nullable{System.Int32})">
+        <member name="M:Database.TableRepository.#ctor(TerraformAgentDbor.Database.Oracle.IDatabaseHelper)">
+            <summary>
+            Creates new instance of <see cref="T:Database.TableRepository"/>
+            </summary>
+            <param name="databaseHelper">Instance of <see cref="T:TerraformAgentDbor.Database.Oracle.IDatabaseHelper"/></param>
+        </member>
+        <member name="M:Database.TableRepository.GetTablesAsync(TerraformAgentDbor.DatabaseInterface.DbInstanceInfo,System.String,System.Int32,System.Int32,System.Threading.CancellationToken)">
             <inheritdoc />
         </member>
     </members>

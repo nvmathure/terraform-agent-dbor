@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <doc>
     <assembly>
-        <name>TerraformAgentDbor.WebApp</name>
+        <name>CloudNDevOps.TerraformAgentDbor.WebApp</name>
     </assembly>
     <members>
         <member name="T:TerraformAgentDbor.WebApp.Controllers.TablesController">
@@ -9,19 +9,19 @@
             Provides CRUD Operation APIs for Database Tables
             </summary>
         </member>
-        <member name="M:TerraformAgentDbor.WebApp.Controllers.TablesController.#ctor(TerraformAgentDbor.Core.ITablesManager)">
+        <member name="M:TerraformAgentDbor.WebApp.Controllers.TablesController.#ctor(CloudNDevOps.TerraformAgentDbor.Core.ITablesManager)">
             <summary>
             Creates new instance of <see cref="T:TerraformAgentDbor.WebApp.Controllers.TablesController"/>
             </summary>
-            <param name="tablesManager">Instance of <see cref="T:TerraformAgentDbor.Core.ITablesManager"/></param>
+            <param name="tablesManager">Instance of <see cref="T:CloudNDevOps.TerraformAgentDbor.Core.ITablesManager"/></param>
         </member>
-        <member name="M:TerraformAgentDbor.WebApp.Controllers.TablesController.Read(System.String,System.Int32,System.Int32)">
+        <member name="M:TerraformAgentDbor.WebApp.Controllers.TablesController.Read(System.String,System.String,System.Int32,System.Int32)">
             <summary>
             Gets list of tables
             </summary>
             <returns>Enumerable with list of table</returns>
         </member>
-        <member name="M:TerraformAgentDbor.WebApp.Controllers.TablesController.Create(System.String,System.String,Contracts.TableDefinition)">
+        <member name="M:TerraformAgentDbor.WebApp.Controllers.TablesController.Create(System.String,System.String,CloudNDevOps.TerraformAgentDbor.Contracts.TableDefinition)">
             <summary>
             Creates new Table
             </summary>

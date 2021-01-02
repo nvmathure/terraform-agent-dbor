@@ -1,41 +1,86 @@
 <?xml version="1.0"?>
 <doc>
     <assembly>
-        <name>TerraformAgentDbor.Core</name>
+        <name>CloudNDevOps.TerraformAgentDbor.Core</name>
     </assembly>
     <members>
-        <member name="T:TerraformAgentDbor.Core.ITablesManager">
+        <member name="T:TerraformAgentDbor.Core.IInstanceManager">
             <summary>
-            Defines a contract for Table Manager
+            Manages Instance configured for current service
             </summary>
         </member>
-        <member name="M:TerraformAgentDbor.Core.ITablesManager.GetAsync(System.String,System.Int32,System.Int32)">
+        <member name="M:TerraformAgentDbor.Core.IInstanceManager.GetInstance(System.String)">
             <summary>
-            Gets list of tables
+            Gets instance details based on Alias Name
             </summary>
-            <param name="schemaName">Name of schema</param>
-            <param name="limit">Number of tables to return on each page, defaults to 10</param>
-            <param name="offset">Page Number, defaults to 1</param>
-            <returns>List of tables</returns>
+            <param name="alias">Alias of instance</param>
+            <returns>Instance of <see cref="T:TerraformAgentDbor.DatabaseInterface.DbInstanceInfo"/> when found</returns>
+            <exception cref="T:System.InvalidOperationException">When alias is not found</exception>
         </member>
-        <member name="M:TerraformAgentDbor.Core.ITablesManager.Create(System.String,Contracts.TableDefinition)">
+        <member name="P:TerraformAgentDbor.Core.IInstanceManager.Item(System.String)">
             <summary>
-            Creates new table in database
+            Gets instance details based on Alias Name
             </summary>
-            <param name="schemanName">Schema of the table</param>
-            <param name="table"></param>
-            <returns></returns>
+            <param name="alias">Alias of instance</param>
+            <returns>Instance of <see cref="T:TerraformAgentDbor.DatabaseInterface.DbInstanceInfo"/> when found</returns>
+            <exception cref="T:System.InvalidOperationException">When alias is not found</exception>
+        </member>
+        <member name="T:TerraformAgentDbor.Core.InstanceManager">
+            <summary>
+            Providers access to <see cref="T:TerraformAgentDbor.DatabaseInterface.DbInstanceInfo"/>
+            </summary>
+        </member>
+        <member name="F:TerraformAgentDbor.Core.InstanceManager.Current">
+            <summary>
+            Gets Singleton Instance of <see cref="T:TerraformAgentDbor.Core.InstanceManager"/>
+            </summary>
+        </member>
+        <member name="P:TerraformAgentDbor.Core.InstanceManager.Item(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TerraformAgentDbor.Core.InstanceManager.GetInstance(System.String)">
+            <inheritdoc/>
         </member>
         <member name="T:TerraformAgentDbor.Core.TablesManager">
             <summary>
             Executes Create, Read, Update and Delete (CRUD) operations on database tables
             </summary>
         </member>
-        <member name="M:TerraformAgentDbor.Core.TablesManager.Create(System.String,Contracts.TableDefinition)">
+        <member name="M:TerraformAgentDbor.Core.TablesManager.#ctor(TerraformAgentDbor.Core.IInstanceManager,TerraformAgentDbor.DatabaseInterface.Tables.ITablesRepository)">
+            <summary>
+            Creates new instance of <see cref="T:TerraformAgentDbor.Core.TablesManager"/>
+            </summary>
+            <param name="instanceManager">Instance of <see cref="T:TerraformAgentDbor.Core.InstanceManager"/></param>
+            <param name="tablesRepository">Instance of <see cref="T:TerraformAgentDbor.DatabaseInterface.Tables.ITablesRepository"/></param>
+        </member>
+        <member name="M:TerraformAgentDbor.Core.TablesManager.Create(System.String,CloudNDevOps.TerraformAgentDbor.Contracts.TableDefinition)">
             <inheritdoc/>
         </member>
-        <member name="M:TerraformAgentDbor.Core.TablesManager.GetAsync(System.String,System.Int32,System.Int32)">
+        <member name="M:TerraformAgentDbor.Core.TablesManager.GetAsync(System.String,System.String,System.Int32,System.Int32)">
             <inheritdoc/>
+        </member>
+        <member name="T:CloudNDevOps.TerraformAgentDbor.Core.ITablesManager">
+            <summary>
+            Defines a contract for Table Manager
+            </summary>
+        </member>
+        <member name="M:CloudNDevOps.TerraformAgentDbor.Core.ITablesManager.GetAsync(System.String,System.String,System.Int32,System.Int32)">
+            <summary>
+            Gets list of tables
+            </summary>
+            <param name="dbInstanceName">Database Instance Name</param>
+            <param name="owner">Name of schema</param>
+            <param name="limit">Number of tables to return on each page, defaults to 10</param>
+            <param name="offset">Page Number, defaults to 1</param>
+            <returns>List of tables</returns>
+        </member>
+        <member name="M:CloudNDevOps.TerraformAgentDbor.Core.ITablesManager.Create(System.String,CloudNDevOps.TerraformAgentDbor.Contracts.TableDefinition)">
+            <summary>
+            Creates new table in database
+            </summary>
+            <param name="schemanName">Schema of the table</param>
+            <param name="table"></param>
+            <returns></returns>
         </member>
     </members>
 </doc>

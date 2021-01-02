@@ -1,4 +1,5 @@
-﻿using System;
+﻿using System.Collections.Generic;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace TerraformAgentDbor.DatabaseInterface.Tables
@@ -11,10 +12,13 @@ namespace TerraformAgentDbor.DatabaseInterface.Tables
         /// <summary>
         /// Gets list of tables for given schema
         /// </summary>
-        /// <param name="schemaName">Name of database schema to search for tables, when left blank current user's schema is used.</param>
-        /// <param name="pageSize">Number of objects to return in response. Default is 10</param>
-        /// <param name="pageNumber">Page number to be returned. Default is 1</param>
+        /// <param name="dbInstanceInfo">Instance of <see cref="DbInstanceInfo"/></param>
+        /// <param name="owner">Owner/Schema Name</param>
+        /// <param name="limit">Number of objects to return in response</param>
+        /// <param name="offset">Number of objects to skip</param>
+        /// <param name="cancellationToken">Cancellation Token</param>
         /// <returns>Enurable of <see cref="TableDto"/> containing table information</returns>
-        Task<IEquatable<TableDto>> GetTablesAsync(string schemaName, int? pageSize = 10, int? pageNumber = 1);
+        Task<IEnumerable<TableDto>> GetTablesAsync(DbInstanceInfo dbInstanceInfo, string owner, int limit, int offset, CancellationToken cancellationToken = default);
+
     }
 }

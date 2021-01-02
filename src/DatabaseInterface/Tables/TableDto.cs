@@ -10,5 +10,10 @@
         /// </summary>
         public string Name { get; set; }
 
+        /// <summary>
+        /// Gets/Sets schema name of table
+        /// </summary>
+        public string SchemaName { get; set; }
+
     }
 }

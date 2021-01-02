@@ -1,18 +1,252 @@
 <?xml version="1.0"?>
 <doc>
     <assembly>
-        <name>TerraformAgentDbor.Contracts</name>
+        <name>CloudNDevOps.TerraformAgentDbor.Contracts</name>
     </assembly>
     <members>
-        <member name="T:Contracts.TableDefinition">
+        <member name="T:CloudNDevOps.TerraformAgentDbor.Contracts.ColumnDefinition">
+            <summary>
+            Represents instance of column of database table
+            </summary>
+        </member>
+        <member name="P:CloudNDevOps.TerraformAgentDbor.Contracts.ColumnDefinition.Name">
+            <summary>
+            Gets/Sets name of database columns
+            </summary>
+        </member>
+        <member name="P:CloudNDevOps.TerraformAgentDbor.Contracts.ColumnDefinition.DataType">
+            <summary>
+            Gets/Sets data type of column
+            </summary>
+        </member>
+        <member name="T:CloudNDevOps.TerraformAgentDbor.Contracts.CharColumnDefinition">
+            <summary>
+            Represents instance of Fixed Length Character Column of database table
+            </summary>
+        </member>
+        <member name="T:CloudNDevOps.TerraformAgentDbor.Contracts.ClobColumnDefinition">
+            <summary>
+            Represents instance of CLOB Column of database table
+            </summary>
+        </member>
+        <member name="T:CloudNDevOps.TerraformAgentDbor.Contracts.DateColumnDefinition">
+            <summary>
+            Represents instance of Date Column of database table
+            </summary>
+        </member>
+        <member name="T:CloudNDevOps.TerraformAgentDbor.Contracts.FixedCharacterColumnDefinition">
+            <summary>
+            Represents Character Column
+            </summary>
+        </member>
+        <member name="P:CloudNDevOps.TerraformAgentDbor.Contracts.FixedCharacterColumnDefinition.Length">
+            <summary>
+            Gets/Sets Length of Character Column
+            </summary>
+        </member>
+        <member name="P:CloudNDevOps.TerraformAgentDbor.Contracts.FixedCharacterColumnDefinition.MaximumLengthUnit">
+            <summary>
+            Gets/Sets Length Unit of Character Column
+            </summary>
+        </member>
+        <member name="T:CloudNDevOps.TerraformAgentDbor.Contracts.LenghtUnits">
+            <summary>
+            Enumerates Character Length Units
+            </summary>
+        </member>
+        <member name="F:CloudNDevOps.TerraformAgentDbor.Contracts.LenghtUnits.None">
+            <summary>
+            Unit is not specified, use default
+            </summary>
+        </member>
+        <member name="F:CloudNDevOps.TerraformAgentDbor.Contracts.LenghtUnits.Byte">
+            <summary>
+            Length is specified as number of Bytes
+            </summary>
+        </member>
+        <member name="F:CloudNDevOps.TerraformAgentDbor.Contracts.LenghtUnits.Char">
+            <summary>
+            Length is specified as number of Characters
+            </summary>
+        </member>
+        <member name="T:CloudNDevOps.TerraformAgentDbor.Contracts.NCharColumnDefinition">
+            <summary>
+            Represents instance of Fixed Length Character Column of database table
+            </summary>
+        </member>
+        <member name="T:CloudNDevOps.TerraformAgentDbor.Contracts.NClobColumnDefinition">
+            <summary>
+            Represents instance of NCLOB Column of database table
+            </summary>
+        </member>
+        <member name="T:CloudNDevOps.TerraformAgentDbor.Contracts.NumberColumnDefinition">
+            <summary>
+            Represents instance of Number Column of database table
+            </summary>
+        </member>
+        <member name="P:CloudNDevOps.TerraformAgentDbor.Contracts.NumberColumnDefinition.Scale">
+            <summary>
+            Gets/Sets Scale of Number Column
+            </summary>
+        </member>
+        <member name="P:CloudNDevOps.TerraformAgentDbor.Contracts.NumberColumnDefinition.Precision">
+            <summary>
+            Gets/Sets Precision of Number Column
+            </summary>
+        </member>
+        <member name="T:CloudNDevOps.TerraformAgentDbor.Contracts.NVarChar2ColumnDefinition">
+            <summary>
+            Represents instance of Character column of database table
+            </summary>
+        </member>
+        <member name="T:CloudNDevOps.TerraformAgentDbor.Contracts.RawColumnDefinition">
+            <summary>
+            Represents instance of Raw Column of database table
+            </summary>
+        </member>
+        <member name="P:CloudNDevOps.TerraformAgentDbor.Contracts.RawColumnDefinition.MaximumLength">
+            <summary>
+            Gets/Sets Maximum Length of Raw Column in Bytes
+            </summary>
+        </member>
+        <member name="T:CloudNDevOps.TerraformAgentDbor.Contracts.VarChar2ColumnDefinition">
+            <summary>
+            Represents instance of Variable Length Character Column of database table
+            </summary>
+        </member>
+        <member name="T:CloudNDevOps.TerraformAgentDbor.Contracts.VariableCharacterColumnDefinition">
+            <summary>
+            Represents Character Column
+            </summary>
+        </member>
+        <member name="P:CloudNDevOps.TerraformAgentDbor.Contracts.VariableCharacterColumnDefinition.MaximumLength">
+            <summary>
+            Gets/Sets Maximum Length of Character Column
+            </summary>
+        </member>
+        <member name="P:CloudNDevOps.TerraformAgentDbor.Contracts.VariableCharacterColumnDefinition.MaximumLengthUnit">
+            <summary>
+            Gets/Sets Maximum Length Unit of Character Column
+            </summary>
+        </member>
+        <member name="T:CloudNDevOps.TerraformAgentDbor.Contracts.DataTypes">
+            <summary>
+            Enumerates list of datatypes supported by Agent
+            <see href="https://docs.oracle.com/en/database/oracle/oracle-database/19/sqlrf/Data-Types.html">Data-Types</see>
+            </summary>
+        </member>
+        <member name="F:CloudNDevOps.TerraformAgentDbor.Contracts.DataTypes.None">
+            <summary>
+            Default None Value
+            </summary>
+        </member>
+        <member name="F:CloudNDevOps.TerraformAgentDbor.Contracts.DataTypes.VarChar2">
+            <summary>
+            Variable Length Character
+            </summary>
+        </member>
+        <member name="F:CloudNDevOps.TerraformAgentDbor.Contracts.DataTypes.NVarChar2">
+            <summary>
+            Variable Length Unicode Character
+            </summary>
+        </member>
+        <member name="F:CloudNDevOps.TerraformAgentDbor.Contracts.DataTypes.Number">
+            <summary>
+            Number with Precision and Scale
+            </summary>
+        </member>
+        <member name="F:CloudNDevOps.TerraformAgentDbor.Contracts.DataTypes.Date">
+            <summary>
+            Date value
+            </summary>
+        </member>
+        <member name="F:CloudNDevOps.TerraformAgentDbor.Contracts.DataTypes.Raw">
+            <summary>
+            Raw Binary Data
+            </summary>
+        </member>
+        <member name="F:CloudNDevOps.TerraformAgentDbor.Contracts.DataTypes.Char">
+            <summary>
+            Fixed Length Character
+            </summary>
+        </member>
+        <member name="F:CloudNDevOps.TerraformAgentDbor.Contracts.DataTypes.NChar">
+            <summary>
+            Fixed Length Unicode Charater 
+            </summary>
+        </member>
+        <member name="F:CloudNDevOps.TerraformAgentDbor.Contracts.DataTypes.Clob">
+            <summary>
+            Character Large Object
+            </summary>
+        </member>
+        <member name="F:CloudNDevOps.TerraformAgentDbor.Contracts.DataTypes.NClob">
+            <summary>
+            Unicode Character Large Object
+            </summary>
+        </member>
+        <member name="T:CloudNDevOps.TerraformAgentDbor.Contracts.TableDefinition">
             <summary>
             Represents instance of database table
             </summary>
         </member>
-        <member name="P:Contracts.TableDefinition.Name">
+        <member name="P:CloudNDevOps.TerraformAgentDbor.Contracts.TableDefinition.Name">
             <summary>
             Gets/Sets name of table
             </summary>
+        </member>
+        <member name="P:CloudNDevOps.TerraformAgentDbor.Contracts.TableDefinition.SchemaName">
+            <summary>
+            Gets/Sets name of table
+            </summary>
+        </member>
+        <member name="P:CloudNDevOps.TerraformAgentDbor.Contracts.TableDefinition.Columns">
+            <summary>
+            Gets/Sets list of columns
+            </summary>
+        </member>
+        <member name="T:CloudNDevOps.TerraformAgentDbor.Contracts.Validations.ColumnDefinitionValidator">
+            <summary>
+            Defines Validators related to <see cref="T:CloudNDevOps.TerraformAgentDbor.Contracts.ColumnDefinition"/>
+            </summary>
+        </member>
+        <member name="M:CloudNDevOps.TerraformAgentDbor.Contracts.Validations.ColumnDefinitionValidator.#ctor">
+            <summary>
+            Default Constructor
+            </summary>
+        </member>
+        <member name="T:CloudNDevOps.TerraformAgentDbor.Contracts.Validations.TableDefinitionValidator">
+            <summary>
+            Defines Validators related to <see cref="T:CloudNDevOps.TerraformAgentDbor.Contracts.TableDefinition"/>
+            </summary>
+        </member>
+        <member name="M:CloudNDevOps.TerraformAgentDbor.Contracts.Validations.TableDefinitionValidator.#ctor">
+            <summary>
+            Default Constructor
+            </summary>
+        </member>
+        <member name="T:CloudNDevOps.TerraformAgentDbor.Contracts.ConverterFactory">
+            <summary>
+            Factory Class for creating Newtonsoft Converters related to Contracts
+            </summary>
+        </member>
+        <member name="M:CloudNDevOps.TerraformAgentDbor.Contracts.ConverterFactory.CreateColumnDefinitionConverter">
+            <summary>
+            Creates new <see cref="T:CloudNDevOps.Newtonsoft.Extensions.TypeFamilyConverter`2"/> for <see cref="T:CloudNDevOps.TerraformAgentDbor.Contracts.ColumnDefinition"/>
+            </summary>
+            <returns>Instance of <see cref="T:CloudNDevOps.Newtonsoft.Extensions.TypeFamilyConverter`2"/></returns>
+        </member>
+        <member name="T:CloudNDevOps.TerraformAgentDbor.Contracts.DeserializationHelper">
+            <summary>
+            Provides Deserialization Helper Methods for Root Level Definition Objects
+            </summary>
+        </member>
+        <member name="M:CloudNDevOps.TerraformAgentDbor.Contracts.DeserializationHelper.ToTable(System.String)">
+            <summary>
+            Serializes JSON String to <see cref="T:CloudNDevOps.TerraformAgentDbor.Contracts.TableDefinition"/> Class
+            </summary>
+            <param name="input">JSON String representing <see cref="T:CloudNDevOps.TerraformAgentDbor.Contracts.TableDefinition"/></param>
+            <returns>Instance of <see cref="T:CloudNDevOps.TerraformAgentDbor.Contracts.TableDefinition"/></returns>
         </member>
     </members>
 </doc>

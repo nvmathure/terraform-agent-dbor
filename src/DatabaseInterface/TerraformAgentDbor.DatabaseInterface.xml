@@ -1,9 +1,49 @@
 <?xml version="1.0"?>
 <doc>
     <assembly>
-        <name>TerraformAgentDbor.DatabaseInterface</name>
+        <name>CloudNDevOps.TerraformAgentDbor.DatabaseInterface</name>
     </assembly>
     <members>
+        <member name="T:TerraformAgentDbor.DatabaseInterface.DbInstanceInfo">
+            <summary>
+            Represents Oracle Instance
+            </summary>
+        </member>
+        <member name="P:TerraformAgentDbor.DatabaseInterface.DbInstanceInfo.Alias">
+            <summary>
+            Gets/Sets Instance Alias used in URL
+            </summary>
+        </member>
+        <member name="P:TerraformAgentDbor.DatabaseInterface.DbInstanceInfo.UserName">
+            <summary>
+            Gets/Sets User Name to login to Oracle
+            </summary>
+        </member>
+        <member name="P:TerraformAgentDbor.DatabaseInterface.DbInstanceInfo.Password">
+            <summary>
+            Gets/Sets Password to login to Oracle
+            </summary>
+        </member>
+        <member name="P:TerraformAgentDbor.DatabaseInterface.DbInstanceInfo.Port">
+            <summary>
+            Gets/Sets Oracle Port
+            </summary>
+        </member>
+        <member name="P:TerraformAgentDbor.DatabaseInterface.DbInstanceInfo.Host">
+            <summary>
+            Gets/Sets Oracle Host Name
+            </summary>
+        </member>
+        <member name="P:TerraformAgentDbor.DatabaseInterface.DbInstanceInfo.ServiceName">
+            <summary>
+            Gets/Sets Oracle Service Name
+            </summary>
+        </member>
+        <member name="P:TerraformAgentDbor.DatabaseInterface.DbInstanceInfo.SslServerCertDn">
+            <summary>
+            Gets/Sets Oracle Service Name
+            </summary>
+        </member>
         <member name="T:TerraformAgentDbor.DatabaseInterface.Ddl.IDdlRepository">
             <summary>
             Represents repository to perform DDL Operations on Table
@@ -21,13 +61,15 @@
             Represents repository to perform Read Operations on Table
             </summary>
         </member>
-        <member name="M:TerraformAgentDbor.DatabaseInterface.Tables.ITablesRepository.GetTablesAsync(System.String,System.Nullable{System.Int32},System.Nullable{System.Int32})">
+        <member name="M:TerraformAgentDbor.DatabaseInterface.Tables.ITablesRepository.GetTablesAsync(TerraformAgentDbor.DatabaseInterface.DbInstanceInfo,System.String,System.Int32,System.Int32,System.Threading.CancellationToken)">
             <summary>
             Gets list of tables for given schema
             </summary>
-            <param name="schemaName">Name of database schema to search for tables, when left blank current user's schema is used.</param>
-            <param name="pageSize">Number of objects to return in response. Default is 10</param>
-            <param name="pageNumber">Page number to be returned. Default is 1</param>
+            <param name="dbInstanceInfo">Instance of <see cref="T:TerraformAgentDbor.DatabaseInterface.DbInstanceInfo"/></param>
+            <param name="owner">Owner/Schema Name</param>
+            <param name="limit">Number of objects to return in response</param>
+            <param name="offset">Number of objects to skip</param>
+            <param name="cancellationToken">Cancellation Token</param>
             <returns>Enurable of <see cref="T:TerraformAgentDbor.DatabaseInterface.Tables.TableDto"/> containing table information</returns>
         </member>
         <member name="T:TerraformAgentDbor.DatabaseInterface.Tables.TableDto">
