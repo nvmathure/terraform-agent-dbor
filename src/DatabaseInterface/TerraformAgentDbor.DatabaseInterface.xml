@@ -4,82 +4,87 @@
         <name>CloudNDevOps.TerraformAgentDbor.DatabaseInterface</name>
     </assembly>
     <members>
-        <member name="T:TerraformAgentDbor.DatabaseInterface.DbInstanceInfo">
+        <member name="T:CloudNDevOps.TerraformAgentDbor.DatabaseInterface.DbInstanceInfo">
             <summary>
             Represents Oracle Instance
             </summary>
         </member>
-        <member name="P:TerraformAgentDbor.DatabaseInterface.DbInstanceInfo.Alias">
+        <member name="P:CloudNDevOps.TerraformAgentDbor.DatabaseInterface.DbInstanceInfo.Alias">
             <summary>
             Gets/Sets Instance Alias used in URL
             </summary>
         </member>
-        <member name="P:TerraformAgentDbor.DatabaseInterface.DbInstanceInfo.UserName">
+        <member name="P:CloudNDevOps.TerraformAgentDbor.DatabaseInterface.DbInstanceInfo.UserName">
             <summary>
             Gets/Sets User Name to login to Oracle
             </summary>
         </member>
-        <member name="P:TerraformAgentDbor.DatabaseInterface.DbInstanceInfo.Password">
+        <member name="P:CloudNDevOps.TerraformAgentDbor.DatabaseInterface.DbInstanceInfo.Password">
             <summary>
             Gets/Sets Password to login to Oracle
             </summary>
         </member>
-        <member name="P:TerraformAgentDbor.DatabaseInterface.DbInstanceInfo.Port">
+        <member name="P:CloudNDevOps.TerraformAgentDbor.DatabaseInterface.DbInstanceInfo.Port">
             <summary>
             Gets/Sets Oracle Port
             </summary>
         </member>
-        <member name="P:TerraformAgentDbor.DatabaseInterface.DbInstanceInfo.Host">
+        <member name="P:CloudNDevOps.TerraformAgentDbor.DatabaseInterface.DbInstanceInfo.Host">
             <summary>
             Gets/Sets Oracle Host Name
             </summary>
         </member>
-        <member name="P:TerraformAgentDbor.DatabaseInterface.DbInstanceInfo.ServiceName">
+        <member name="P:CloudNDevOps.TerraformAgentDbor.DatabaseInterface.DbInstanceInfo.ServiceName">
             <summary>
             Gets/Sets Oracle Service Name
             </summary>
         </member>
-        <member name="P:TerraformAgentDbor.DatabaseInterface.DbInstanceInfo.SslServerCertDn">
+        <member name="P:CloudNDevOps.TerraformAgentDbor.DatabaseInterface.DbInstanceInfo.SslServerCertDn">
             <summary>
             Gets/Sets Oracle Service Name
             </summary>
         </member>
-        <member name="T:TerraformAgentDbor.DatabaseInterface.Ddl.IDdlRepository">
+        <member name="T:CloudNDevOps.TerraformAgentDbor.DatabaseInterface.Ddl.IDdlRepository">
             <summary>
             Represents repository to perform DDL Operations on Table
             </summary>
         </member>
-        <member name="M:TerraformAgentDbor.DatabaseInterface.Ddl.IDdlRepository.Execute(System.String)">
+        <member name="M:CloudNDevOps.TerraformAgentDbor.DatabaseInterface.Ddl.IDdlRepository.Execute(System.String)">
             <summary>
             Executes DDL against the database
             </summary>
             <param name="ddlStatement">DDL Statement to be executed</param>
             <returns>Success Task when completed successfully</returns>
         </member>
-        <member name="T:TerraformAgentDbor.DatabaseInterface.Tables.ITablesRepository">
+        <member name="T:CloudNDevOps.TerraformAgentDbor.DatabaseInterface.Tables.ITablesRepository">
             <summary>
             Represents repository to perform Read Operations on Table
             </summary>
         </member>
-        <member name="M:TerraformAgentDbor.DatabaseInterface.Tables.ITablesRepository.GetTablesAsync(TerraformAgentDbor.DatabaseInterface.DbInstanceInfo,System.String,System.Int32,System.Int32,System.Threading.CancellationToken)">
+        <member name="M:CloudNDevOps.TerraformAgentDbor.DatabaseInterface.Tables.ITablesRepository.GetTablesAsync(CloudNDevOps.TerraformAgentDbor.DatabaseInterface.DbInstanceInfo,System.String,System.Int32,System.Int32,System.Threading.CancellationToken)">
             <summary>
             Gets list of tables for given schema
             </summary>
-            <param name="dbInstanceInfo">Instance of <see cref="T:TerraformAgentDbor.DatabaseInterface.DbInstanceInfo"/></param>
-            <param name="owner">Owner/Schema Name</param>
+            <param name="dbInstanceInfo">Instance of <see cref="T:CloudNDevOps.TerraformAgentDbor.DatabaseInterface.DbInstanceInfo"/></param>
+            <param name="owner">Owner Name</param>
             <param name="limit">Number of objects to return in response</param>
             <param name="offset">Number of objects to skip</param>
             <param name="cancellationToken">Cancellation Token</param>
-            <returns>Enurable of <see cref="T:TerraformAgentDbor.DatabaseInterface.Tables.TableDto"/> containing table information</returns>
+            <returns>Enurable of <see cref="T:CloudNDevOps.TerraformAgentDbor.DatabaseInterface.Tables.TableDto"/> containing table information</returns>
         </member>
-        <member name="T:TerraformAgentDbor.DatabaseInterface.Tables.TableDto">
+        <member name="T:CloudNDevOps.TerraformAgentDbor.DatabaseInterface.Tables.TableDto">
             <summary>
             Represents Database Table Data Transformation Object (DTO)
             </summary>
         </member>
-        <member name="P:TerraformAgentDbor.DatabaseInterface.Tables.TableDto.Name">
+        <member name="P:CloudNDevOps.TerraformAgentDbor.DatabaseInterface.Tables.TableDto.Name">
             <summary>
             Gets/Sets name of table
+            </summary>
+        </member>
+        <member name="P:CloudNDevOps.TerraformAgentDbor.DatabaseInterface.Tables.TableDto.Owner">
+            <summary>
+            Gets/Sets owner of table
             </summary>
         </member>
     </members>

@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Threading.Tasks;
-using TerraformAgentDbor.Database.Oracle;
-using TerraformAgentDbor.DatabaseInterface.Ddl;
+using CloudNDevOps.TerraformAgentDbor.Database.Oracle;
+using CloudNDevOps.TerraformAgentDbor.DatabaseInterface.Ddl;
 
-namespace TerraformAgentDbor.Database
+namespace CloudNDevOps.TerraformAgentDbor.Database
 {
     /// <inheritdoc />
     public sealed class DdlRepository : IDdlRepository

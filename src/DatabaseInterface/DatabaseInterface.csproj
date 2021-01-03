@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <AssemblyName>CloudNDevOps.TerraformAgentDbor.DatabaseInterface</AssemblyName>
-    <RootNamespace>TerraformAgentDbor.DatabaseInterface</RootNamespace>
+    <RootNamespace>CloudNDevOps.TerraformAgentDbor.DatabaseInterface</RootNamespace>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">

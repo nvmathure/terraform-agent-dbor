@@ -1,14 +1,16 @@
+using AutoMapper;
+using CloudNDevOps.TerraformAgentDbor.Contracts;
 using CloudNDevOps.TerraformAgentDbor.Core;
-using Database;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using TerraformAgentDbor.Core;
-using TerraformAgentDbor.Database.Oracle;
+using CloudNDevOps.TerraformAgentDbor.Database.Oracle;
+using CloudNDevOps.TerraformAgentDbor.DatabaseInterface.Tables;
+using CloudNDevOps.TerraformAgentDbor.Database;
 
-namespace TerraformAgentDbor.WebApi
+namespace CloudNDevOps.TerraformAgentDbor.WebApi
 {
     /// <summary>
     /// Startup Class for Terraform Agent for Oracle
@@ -35,8 +37,14 @@ namespace TerraformAgentDbor.WebApi
         public void ConfigureServices(IServiceCollection services)
         {
             var databaseHelper = new DatabaseHelper();
+            var config = new MapperConfiguration(cfg => cfg.CreateMap<TableDto, TableDefinition>());
+            var mapper = config.CreateMapper();
+
             services.AddControllers();
-            services.AddSingleton<ITablesManager>(new TablesManager(InstanceManager.Current, new TableRepository(databaseHelper)));
+            services.AddSingleton<ITablesManager>(new TablesManager(InstanceManager.Current, new TableRepository(databaseHelper), mapper));
+
+            
+
         }
 
         /// <summary>

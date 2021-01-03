@@ -1,4 +1,4 @@
-﻿namespace TerraformAgentDbor.DatabaseInterface.Tables
+﻿namespace CloudNDevOps.TerraformAgentDbor.DatabaseInterface.Tables
 {
     /// <summary>
     /// Represents Database Table Data Transformation Object (DTO)
@@ -11,9 +11,9 @@
         public string Name { get; set; }
 
         /// <summary>
-        /// Gets/Sets schema name of table
+        /// Gets/Sets owner of table
         /// </summary>
-        public string SchemaName { get; set; }
+        public string Owner { get; set; }
 
     }
 }

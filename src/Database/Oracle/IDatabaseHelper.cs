@@ -2,9 +2,9 @@
 using System.Data;
 using System.Threading;
 using System.Threading.Tasks;
-using TerraformAgentDbor.DatabaseInterface;
+using CloudNDevOps.TerraformAgentDbor.DatabaseInterface;
 
-namespace TerraformAgentDbor.Database.Oracle
+namespace CloudNDevOps.TerraformAgentDbor.Database.Oracle
 {
     /// <summary>
     /// Defines an interface for accessing Oracle Helper services

@@ -1,11 +1,11 @@
-﻿using CloudNDevOps.TerraformAgentDbor.Contracts;
-using CloudNDevOps.TerraformAgentDbor.Core;
+﻿using AutoMapper;
+using CloudNDevOps.TerraformAgentDbor.Contracts;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using TerraformAgentDbor.DatabaseInterface.Tables;
+using CloudNDevOps.TerraformAgentDbor.DatabaseInterface.Tables;
 
-namespace TerraformAgentDbor.Core
+namespace CloudNDevOps.TerraformAgentDbor.Core
 {
     /// <summary>
     /// Executes Create, Read, Update and Delete (CRUD) operations on database tables
@@ -14,16 +14,22 @@ namespace TerraformAgentDbor.Core
     {
         private readonly IInstanceManager _instanceManager;
         private readonly ITablesRepository _tablesRepository;
+        private readonly IMapper _mapper;
 
         /// <summary>
         /// Creates new instance of <see cref="TablesManager"/>
         /// </summary>
         /// <param name="instanceManager">Instance of <see cref="InstanceManager"/></param>
         /// <param name="tablesRepository">Instance of <see cref="ITablesRepository"/></param>
-        public TablesManager(IInstanceManager instanceManager, ITablesRepository tablesRepository)
+        /// <param name="mapper">Instance of <see cref="IMapper"/></param>
+        public TablesManager(
+            IInstanceManager instanceManager, 
+            ITablesRepository tablesRepository,
+            IMapper mapper)
         {
             _instanceManager = instanceManager ?? throw new ArgumentNullException(nameof(instanceManager));
             _tablesRepository = tablesRepository ?? throw new ArgumentNullException(nameof(tablesRepository));
+            _mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
         }
 
         /// <inheritdoc/>
@@ -37,13 +43,7 @@ namespace TerraformAgentDbor.Core
         {
             var instance = _instanceManager[instanceName];
             var tables = await _tablesRepository.GetTablesAsync(instance, owner, limit, offset);
-
-            return 
-                (IEnumerable<TableDefinition>)new List<TableDefinition>()
-                {
-                    new TableDefinition() { Name = "Employees" },
-                    new TableDefinition() { Name = "Departments" }
-                };
+            return _mapper.Map<TableDefinition[]>(tables);
         }
     }
 }

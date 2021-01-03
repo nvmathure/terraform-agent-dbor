@@ -27,40 +27,40 @@
             </summary>
             <returns><see cref="T:Microsoft.AspNetCore.Mvc.OkResult"/> if table was created successfully. <see cref="T:Microsoft.AspNetCore.Mvc.BadRequestObjectResult"/> or <see cref="T:Microsoft.AspNetCore.Mvc.StatusCodeResult"/> depending on error</returns>
         </member>
-        <member name="T:TerraformAgentDbor.WebApi.Program">
+        <member name="T:CloudNDevOps.TerraformAgentDbor.WebApi.Program">
             <summary>
             Startup Class for the Application
             </summary>
         </member>
-        <member name="M:TerraformAgentDbor.WebApi.Program.Main(System.String[])">
+        <member name="M:CloudNDevOps.TerraformAgentDbor.WebApi.Program.Main(System.String[])">
             <summary>
             Startup Function for the Application
             </summary>
             <param name="args">Commandline Argument</param>
         </member>
-        <member name="T:TerraformAgentDbor.WebApi.Startup">
+        <member name="T:CloudNDevOps.TerraformAgentDbor.WebApi.Startup">
             <summary>
             Startup Class for Terraform Agent for Oracle
             </summary>
         </member>
-        <member name="M:TerraformAgentDbor.WebApi.Startup.#ctor(Microsoft.Extensions.Configuration.IConfiguration)">
+        <member name="M:CloudNDevOps.TerraformAgentDbor.WebApi.Startup.#ctor(Microsoft.Extensions.Configuration.IConfiguration)">
             <summary>
             Creates new instance of startup
             </summary>
             <param name="configuration">Instance of <see cref="T:Microsoft.Extensions.Configuration.IConfiguration"/></param>
         </member>
-        <member name="P:TerraformAgentDbor.WebApi.Startup.Configuration">
+        <member name="P:CloudNDevOps.TerraformAgentDbor.WebApi.Startup.Configuration">
             <summary>
             Gets/Sets configurations
             </summary>
         </member>
-        <member name="M:TerraformAgentDbor.WebApi.Startup.ConfigureServices(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+        <member name="M:CloudNDevOps.TerraformAgentDbor.WebApi.Startup.ConfigureServices(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
             <summary>
             This method gets called by the runtime. Use this method to add services to the container.
             </summary>
             <param name="services">Instance of <see cref="T:Microsoft.Extensions.DependencyInjection.IServiceCollection"/> for adding services to container</param>
         </member>
-        <member name="M:TerraformAgentDbor.WebApi.Startup.Configure(Microsoft.AspNetCore.Builder.IApplicationBuilder,Microsoft.AspNetCore.Hosting.IWebHostEnvironment)">
+        <member name="M:CloudNDevOps.TerraformAgentDbor.WebApi.Startup.Configure(Microsoft.AspNetCore.Builder.IApplicationBuilder,Microsoft.AspNetCore.Hosting.IWebHostEnvironment)">
             <summary>
             This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
             </summary>

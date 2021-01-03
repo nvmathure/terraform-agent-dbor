@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Security;
-using TerraformAgentDbor.DatabaseInterface;
+using CloudNDevOps.TerraformAgentDbor.DatabaseInterface;
 
-namespace TerraformAgentDbor.Core
+namespace CloudNDevOps.TerraformAgentDbor.Core
 {
     /// <summary>
     /// Manages Instance configured for current service

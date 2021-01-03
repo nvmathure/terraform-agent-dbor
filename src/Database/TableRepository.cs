@@ -1,21 +1,22 @@
-﻿using Oracle.ManagedDataAccess.Client;
+﻿using Dapper;
+using Oracle.ManagedDataAccess.Client;
 using System;
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
-using TerraformAgentDbor.Database.Oracle;
-using TerraformAgentDbor.DatabaseInterface;
-using TerraformAgentDbor.DatabaseInterface.Tables;
+using CloudNDevOps.TerraformAgentDbor.Database.Oracle;
+using CloudNDevOps.TerraformAgentDbor.DatabaseInterface;
+using CloudNDevOps.TerraformAgentDbor.DatabaseInterface.Tables;
 
-namespace Database
+namespace CloudNDevOps.TerraformAgentDbor.Database
 {
     /// <inheritdoc />
     public class TableRepository : ITablesRepository
     {
         private const string readQuery =
             @"
-            select   at.owner
-                   , at.table_name
+            select   at.owner      as Owner
+                   , at.table_name as Name
             from all_tables at
             where at.owner = :owner
             order by   at.owner
@@ -39,18 +40,19 @@ namespace Database
         {
             if (dbInstanceInfo == null) throw new ArgumentNullException(nameof(dbInstanceInfo));
 
-            using var reader = await _databaseHelper.ExecuteReaderAsync(
-                dbInstanceInfo,
-                readQuery,
-                new OracleParameter[]
-                {
-                    new OracleParameter("owner", OracleDbType.Varchar2) { Value = owner },
-                    new OracleParameter("limit", OracleDbType.Int16) { Value = limit },
-                    new OracleParameter("offset", OracleDbType.Int16) { Value = offset },
-                },
-                cancellationToken);
+            using var connection = await _databaseHelper.CreateConnectionAsync(dbInstanceInfo, cancellationToken);
 
-            return null;
+            var response = await connection.QueryAsync<TableDto>(
+                readQuery,
+                new
+                {
+                    owner,
+                    offset,
+                    limit
+                    
+                });
+
+            return response;
         }
     }
 }

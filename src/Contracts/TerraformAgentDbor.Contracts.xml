@@ -195,9 +195,9 @@
             Gets/Sets name of table
             </summary>
         </member>
-        <member name="P:CloudNDevOps.TerraformAgentDbor.Contracts.TableDefinition.SchemaName">
+        <member name="P:CloudNDevOps.TerraformAgentDbor.Contracts.TableDefinition.Owner">
             <summary>
-            Gets/Sets name of table
+            Gets/Sets Owner of table
             </summary>
         </member>
         <member name="P:CloudNDevOps.TerraformAgentDbor.Contracts.TableDefinition.Columns">

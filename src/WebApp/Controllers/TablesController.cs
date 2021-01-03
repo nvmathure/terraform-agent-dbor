@@ -28,11 +28,11 @@ namespace TerraformAgentDbor.WebApp.Controllers
         /// Gets list of tables
         /// </summary>
         /// <returns>Enumerable with list of table</returns>
-        [Route("{schema}/{owner}/[controller]")]
+        [Route("{instanceName}/{owner}/[controller]")]
         [HttpGet()]
-        public async Task<ActionResult<IEnumerable<TableDefinition>>> Read(string schema, string owner, int limit = 10, int offset = 0)
+        public async Task<ActionResult<IEnumerable<TableDefinition>>> Read(string instanceName, string owner, int limit = 10, int offset = 0)
         {
-            var result = await _tablesManager.GetAsync(schema, owner, limit, offset);
+            var result = await _tablesManager.GetAsync(instanceName, owner, limit, offset);
             return Ok(result);
         }
 

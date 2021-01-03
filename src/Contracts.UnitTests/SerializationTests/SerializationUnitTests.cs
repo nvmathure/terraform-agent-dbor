@@ -19,7 +19,7 @@ namespace CloudNDevOps.TerraformAgentDbor.Contracts.UnitTests.SerializationTests
             table.Should().NotBeNull();
             table.Should().BeOfType(typeof(TableDefinition));
             table.Name.Should().Be("Employees");
-            table.SchemaName.Should().BeNullOrEmpty();
+            table.Owner.Should().BeNullOrEmpty();
             table.Columns.Should().NotBeNull();
             table.Columns.Should().ContainSingle();
             var column = table.Columns.First();

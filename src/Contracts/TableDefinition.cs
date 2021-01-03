@@ -11,9 +11,9 @@
         public string Name { get; set; }
 
         /// <summary>
-        /// Gets/Sets schema name of table
+        /// Gets/Sets Owner of table
         /// </summary>
-        public string SchemaName { get; set; }
+        public string Owner { get; set; }
 
         /// <summary>
         /// Gets/Sets list of columns

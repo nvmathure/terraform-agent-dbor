@@ -1,6 +1,6 @@
 ﻿using System.Threading.Tasks;
 
-namespace TerraformAgentDbor.DatabaseInterface.Ddl
+namespace CloudNDevOps.TerraformAgentDbor.DatabaseInterface.Ddl
 {
     /// <summary>
     /// Represents repository to perform DDL Operations on Table

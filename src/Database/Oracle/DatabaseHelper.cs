@@ -4,9 +4,9 @@ using System.Data;
 using System.IO;
 using System.Threading;
 using System.Threading.Tasks;
-using TerraformAgentDbor.DatabaseInterface;
+using CloudNDevOps.TerraformAgentDbor.DatabaseInterface;
 
-namespace TerraformAgentDbor.Database.Oracle
+namespace CloudNDevOps.TerraformAgentDbor.Database.Oracle
 {
     /// <summary>
     /// Provides abstraction from ADO and connection management by giving helper function for database operations
@@ -61,7 +61,8 @@ namespace TerraformAgentDbor.Database.Oracle
             {
                 CommandText = sql,
                 CommandType = CommandType.Text,
-                BindByName = true
+                BindByName = true,
+                Connection = oracleConnection
             };
             if (oracleParameters?.Length > 0)
             {

@@ -1,6 +1,6 @@
 ﻿using System.Security;
 
-namespace TerraformAgentDbor.DatabaseInterface
+namespace CloudNDevOps.TerraformAgentDbor.DatabaseInterface
 {
     /// <summary>
     /// Represents Oracle Instance

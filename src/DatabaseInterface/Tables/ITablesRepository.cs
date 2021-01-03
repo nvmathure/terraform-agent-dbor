@@ -2,7 +2,7 @@
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace TerraformAgentDbor.DatabaseInterface.Tables
+namespace CloudNDevOps.TerraformAgentDbor.DatabaseInterface.Tables
 {
     /// <summary>
     /// Represents repository to perform Read Operations on Table
@@ -13,7 +13,7 @@ namespace TerraformAgentDbor.DatabaseInterface.Tables
         /// Gets list of tables for given schema
         /// </summary>
         /// <param name="dbInstanceInfo">Instance of <see cref="DbInstanceInfo"/></param>
-        /// <param name="owner">Owner/Schema Name</param>
+        /// <param name="owner">Owner Name</param>
         /// <param name="limit">Number of objects to return in response</param>
         /// <param name="offset">Number of objects to skip</param>
         /// <param name="cancellationToken">Cancellation Token</param>

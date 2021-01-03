@@ -7,7 +7,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 
-namespace TerraformAgentDbor.WebApi
+namespace CloudNDevOps.TerraformAgentDbor.WebApi
 {
     /// <summary>
     /// Startup Class for the Application
