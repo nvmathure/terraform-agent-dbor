@@ -36,15 +36,18 @@ namespace CloudNDevOps.TerraformAgentDbor.WebApi
         /// <param name="services">Instance of <see cref="IServiceCollection"/> for adding services to container</param>
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddMvc().AddJsonOptions(options =>
+            {
+                options.JsonSerializerOptions.IgnoreNullValues = true;
+            });
+
+
             var databaseHelper = new DatabaseHelper();
             var config = new MapperConfiguration(cfg => cfg.CreateMap<TableDto, TableDefinition>());
             var mapper = config.CreateMapper();
 
             services.AddControllers();
             services.AddSingleton<ITablesManager>(new TablesManager(InstanceManager.Current, new TableRepository(databaseHelper), mapper));
-
-            
-
         }
 
         /// <summary>
