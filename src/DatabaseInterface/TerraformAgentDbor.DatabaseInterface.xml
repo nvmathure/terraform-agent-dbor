@@ -56,6 +56,86 @@
             <param name="ddlStatement">DDL Statement to be executed</param>
             <returns>Success Task when completed successfully</returns>
         </member>
+        <member name="T:CloudNDevOps.TerraformAgentDbor.DatabaseInterface.Exceptions.TableNotFoundException">
+            <summary>
+            Represents errors that occur when table is not found in the database
+            </summary>
+        </member>
+        <member name="M:CloudNDevOps.TerraformAgentDbor.DatabaseInterface.Exceptions.TableNotFoundException.#ctor(System.String,System.String,System.String)">
+            <summary>
+            Creates new instance of <see cref="T:CloudNDevOps.TerraformAgentDbor.DatabaseInterface.Exceptions.TableNotFoundException"/> and initializes the properties
+            </summary>
+            <param name="instanceName">Name of DB Instance</param>
+            <param name="owner">Owner of the Table</param>
+            <param name="tableName">Name of the Table</param>
+        </member>
+        <member name="M:CloudNDevOps.TerraformAgentDbor.DatabaseInterface.Exceptions.TableNotFoundException.#ctor">
+            <inheritdoc/>
+        </member>
+        <member name="M:CloudNDevOps.TerraformAgentDbor.DatabaseInterface.Exceptions.TableNotFoundException.#ctor(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:CloudNDevOps.TerraformAgentDbor.DatabaseInterface.Exceptions.TableNotFoundException.#ctor(System.String,System.Exception)">
+            <inheritdoc/>
+        </member>
+        <member name="M:CloudNDevOps.TerraformAgentDbor.DatabaseInterface.Exceptions.TableNotFoundException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <inheritdoc/>
+        </member>
+        <member name="P:CloudNDevOps.TerraformAgentDbor.DatabaseInterface.Exceptions.TableNotFoundException.TableName">
+            <summary>
+            Gets/Sets Name of the Table
+            </summary>
+        </member>
+        <member name="P:CloudNDevOps.TerraformAgentDbor.DatabaseInterface.Exceptions.TableNotFoundException.InstanceName">
+            <summary>
+            Gets/Sets Name of the Instance
+            </summary>
+        </member>
+        <member name="P:CloudNDevOps.TerraformAgentDbor.DatabaseInterface.Exceptions.TableNotFoundException.Owner">
+            <summary>
+            Gets/Sets Name of Table Owner
+            </summary>
+        </member>
+        <member name="T:CloudNDevOps.TerraformAgentDbor.DatabaseInterface.Tables.ColumnDto">
+            <summary>
+            Represents Database Column Data Transformation Object (DTO)
+            </summary>
+        </member>
+        <member name="P:CloudNDevOps.TerraformAgentDbor.DatabaseInterface.Tables.ColumnDto.Name">
+            <summary>
+            Gets/Sets Name of the Database Column
+            </summary>
+        </member>
+        <member name="P:CloudNDevOps.TerraformAgentDbor.DatabaseInterface.Tables.ColumnDto.DataType">
+            <summary>
+            Gers/Sets Data Type of the Database Column
+            </summary>
+        </member>
+        <member name="P:CloudNDevOps.TerraformAgentDbor.DatabaseInterface.Tables.ColumnDto.Length">
+            <summary>
+            Gets/Sets Length of the Database Column in Bytes
+            </summary>
+        </member>
+        <member name="P:CloudNDevOps.TerraformAgentDbor.DatabaseInterface.Tables.ColumnDto.CharLength">
+            <summary>
+            Gets/Sets Length of the Database Column in Characters
+            </summary>
+        </member>
+        <member name="P:CloudNDevOps.TerraformAgentDbor.DatabaseInterface.Tables.ColumnDto.Precision">
+            <summary>
+            Gets/Sets Precision of the Number Column
+            </summary>
+        </member>
+        <member name="P:CloudNDevOps.TerraformAgentDbor.DatabaseInterface.Tables.ColumnDto.Scale">
+            <summary>
+            Gets/Sets Scale of the Number Column
+            </summary>
+        </member>
+        <member name="P:CloudNDevOps.TerraformAgentDbor.DatabaseInterface.Tables.ColumnDto.Nullable">
+            <summary>
+            Gets/Sets whether the Column allows Null values
+            </summary>
+        </member>
         <member name="T:CloudNDevOps.TerraformAgentDbor.DatabaseInterface.Tables.ITablesRepository">
             <summary>
             Represents repository to perform Read Operations on Table
@@ -72,6 +152,16 @@
             <param name="cancellationToken">Cancellation Token</param>
             <returns>Enurable of <see cref="T:CloudNDevOps.TerraformAgentDbor.DatabaseInterface.Tables.TableDto"/> containing table information</returns>
         </member>
+        <member name="M:CloudNDevOps.TerraformAgentDbor.DatabaseInterface.Tables.ITablesRepository.GetTableAsync(CloudNDevOps.TerraformAgentDbor.DatabaseInterface.DbInstanceInfo,System.String,System.String,System.Threading.CancellationToken)">
+            <summary>
+            Gets list of tables for given schema
+            </summary>
+            <param name="dbInstanceInfo">Instance of <see cref="T:CloudNDevOps.TerraformAgentDbor.DatabaseInterface.DbInstanceInfo"/></param>
+            <param name="owner">Owner Name</param>
+            <param name="tableName">Name of Table</param>
+            <param name="cancellationToken">Cancellation Token</param>
+            <returns>Enurable of <see cref="T:CloudNDevOps.TerraformAgentDbor.DatabaseInterface.Tables.TableDto"/> containing table information</returns>
+        </member>
         <member name="T:CloudNDevOps.TerraformAgentDbor.DatabaseInterface.Tables.TableDto">
             <summary>
             Represents Database Table Data Transformation Object (DTO)
@@ -85,6 +175,11 @@
         <member name="P:CloudNDevOps.TerraformAgentDbor.DatabaseInterface.Tables.TableDto.Owner">
             <summary>
             Gets/Sets owner of table
+            </summary>
+        </member>
+        <member name="P:CloudNDevOps.TerraformAgentDbor.DatabaseInterface.Tables.TableDto.Columns">
+            <summary>
+            Gets/Sets a List of Columns in the Table
             </summary>
         </member>
     </members>

@@ -1,4 +1,6 @@
-﻿namespace CloudNDevOps.TerraformAgentDbor.DatabaseInterface.Tables
+﻿using System.Collections.Generic;
+
+namespace CloudNDevOps.TerraformAgentDbor.DatabaseInterface.Tables
 {
     /// <summary>
     /// Represents Database Table Data Transformation Object (DTO)
@@ -15,5 +17,9 @@
         /// </summary>
         public string Owner { get; set; }
 
+        /// <summary>
+        /// Gets/Sets a List of Columns in the Table
+        /// </summary>
+        public List<ColumnDto> Columns { get; set; }
     }
 }

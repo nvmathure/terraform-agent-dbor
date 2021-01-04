@@ -4,6 +4,17 @@
         <name>CloudNDevOps.TerraformAgentDbor.Core</name>
     </assembly>
     <members>
+        <member name="T:CloudNDevOps.TerraformAgentDbor.Core.AutoMapperHelper">
+            <summary>
+            Houses all helper functions related to AutoMapper
+            </summary>
+        </member>
+        <member name="M:CloudNDevOps.TerraformAgentDbor.Core.AutoMapperHelper.CreateMapper">
+            <summary>
+            Creates new Instance of <see cref="T:AutoMapper.IMapper"/> and configures Mappings
+            </summary>
+            <returns>Instance of <see cref="T:AutoMapper.IMapper"/></returns>
+        </member>
         <member name="T:CloudNDevOps.TerraformAgentDbor.Core.IInstanceManager">
             <summary>
             Manages Instance configured for current service
@@ -56,6 +67,15 @@
             <param name="offset">Page Number, defaults to 1</param>
             <returns>List of tables</returns>
         </member>
+        <member name="M:CloudNDevOps.TerraformAgentDbor.Core.ITablesManager.GetAsync(System.String,System.String,System.String)">
+            <summary>
+            Gets list of tables
+            </summary>
+            <param name="instanceName">Database Instance Name</param>
+            <param name="owner">Name of Table Owner</param>
+            <param name="tableName">Name of table</param>
+            <returns>Instance of <see cref="T:CloudNDevOps.TerraformAgentDbor.Contracts.TableDefinition"/></returns>
+        </member>
         <member name="M:CloudNDevOps.TerraformAgentDbor.Core.ITablesManager.Create(System.String,CloudNDevOps.TerraformAgentDbor.Contracts.TableDefinition)">
             <summary>
             Creates new table in database
@@ -81,6 +101,9 @@
             <inheritdoc/>
         </member>
         <member name="M:CloudNDevOps.TerraformAgentDbor.Core.TablesManager.GetAsync(System.String,System.String,System.Int32,System.Int32)">
+            <inheritdoc/>
+        </member>
+        <member name="M:CloudNDevOps.TerraformAgentDbor.Core.TablesManager.GetAsync(System.String,System.String,System.String)">
             <inheritdoc/>
         </member>
     </members>

@@ -3,7 +3,7 @@
     /// <summary>
     /// Represents instance of Number Column of database table
     /// </summary>
-    public class NumberColumnDefinition : FixedCharacterColumnDefinition
+    public class NumberColumnDefinition : ColumnDefinition
     {
         /// <summary>
         /// Gets/Sets Scale of Number Column

@@ -20,5 +20,14 @@ namespace CloudNDevOps.TerraformAgentDbor.DatabaseInterface.Tables
         /// <returns>Enurable of <see cref="TableDto"/> containing table information</returns>
         Task<IEnumerable<TableDto>> GetTablesAsync(DbInstanceInfo dbInstanceInfo, string owner, int limit, int offset, CancellationToken cancellationToken = default);
 
+        /// <summary>
+        /// Gets list of tables for given schema
+        /// </summary>
+        /// <param name="dbInstanceInfo">Instance of <see cref="DbInstanceInfo"/></param>
+        /// <param name="owner">Owner Name</param>
+        /// <param name="tableName">Name of Table</param>
+        /// <param name="cancellationToken">Cancellation Token</param>
+        /// <returns>Enurable of <see cref="TableDto"/> containing table information</returns>
+        Task<TableDto> GetTableAsync(DbInstanceInfo dbInstanceInfo, string owner, string tableName, CancellationToken cancellationToken = default);
     }
 }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using CloudNDevOps.TerraformAgentDbor.Contracts;
 using CloudNDevOps.TerraformAgentDbor.Core;
+using CloudNDevOps.TerraformAgentDbor.DatabaseInterface.Exceptions;
 using Microsoft.AspNetCore.Mvc;
 
 namespace TerraformAgentDbor.WebApp.Controllers
@@ -34,6 +35,25 @@ namespace TerraformAgentDbor.WebApp.Controllers
         {
             var result = await _tablesManager.GetAsync(instanceName, owner, limit, offset);
             return Ok(result);
+        }
+
+        /// <summary>
+        /// Gets details of specific table
+        /// </summary>
+        /// <returns>Specific Table Object</returns>
+        [Route("{instanceName}/{owner}/[controller]/{tableName}")]
+        [HttpGet()]
+        public async Task<ActionResult<IEnumerable<TableDefinition>>> ReadTable(string instanceName, string owner, string tableName)
+        {
+            try
+            {
+                var result = await _tablesManager.GetAsync(instanceName, owner, tableName);
+                return Ok(result);
+            }
+            catch (TableNotFoundException)
+            {
+                return NotFound();
+            }
         }
 
         /// <summary>

@@ -9,6 +9,12 @@ using Microsoft.Extensions.Hosting;
 using CloudNDevOps.TerraformAgentDbor.Database.Oracle;
 using CloudNDevOps.TerraformAgentDbor.DatabaseInterface.Tables;
 using CloudNDevOps.TerraformAgentDbor.Database;
+using System.Text.Json.Serialization;
+using System;
+using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+using System.Linq.Expressions;
 
 namespace CloudNDevOps.TerraformAgentDbor.WebApi
 {
@@ -36,17 +42,16 @@ namespace CloudNDevOps.TerraformAgentDbor.WebApi
         /// <param name="services">Instance of <see cref="IServiceCollection"/> for adding services to container</param>
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddMvc().AddJsonOptions(options =>
-            {
-                options.JsonSerializerOptions.IgnoreNullValues = true;
-            });
-
-
             var databaseHelper = new DatabaseHelper();
-            var config = new MapperConfiguration(cfg => cfg.CreateMap<TableDto, TableDefinition>());
-            var mapper = config.CreateMapper();
 
-            services.AddControllers();
+            var mapper = AutoMapperHelper.CreateMapper();
+
+            services.AddControllers()
+                .AddNewtonsoftJson((opt) =>
+                {
+                    opt.SerializerSettings.NullValueHandling = NullValueHandling.Ignore;
+                    opt.SerializerSettings.Converters.Add(new StringEnumConverter());
+                });
             services.AddSingleton<ITablesManager>(new TablesManager(InstanceManager.Current, new TableRepository(databaseHelper), mapper));
         }
 
@@ -71,7 +76,7 @@ namespace CloudNDevOps.TerraformAgentDbor.WebApi
                 endpoints.MapControllers();
             });
 
-            
+
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();

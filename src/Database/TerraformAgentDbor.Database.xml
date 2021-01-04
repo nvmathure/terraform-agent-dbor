@@ -88,6 +88,9 @@
             </summary>
             <param name="databaseHelper">Instance of <see cref="T:CloudNDevOps.TerraformAgentDbor.Database.Oracle.IDatabaseHelper"/></param>
         </member>
+        <member name="M:CloudNDevOps.TerraformAgentDbor.Database.TableRepository.GetTableAsync(CloudNDevOps.TerraformAgentDbor.DatabaseInterface.DbInstanceInfo,System.String,System.String,System.Threading.CancellationToken)">
+            <inheritdoc />
+        </member>
         <member name="M:CloudNDevOps.TerraformAgentDbor.Database.TableRepository.GetTablesAsync(CloudNDevOps.TerraformAgentDbor.DatabaseInterface.DbInstanceInfo,System.String,System.Int32,System.Int32,System.Threading.CancellationToken)">
             <inheritdoc />
         </member>

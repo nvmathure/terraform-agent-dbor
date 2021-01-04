@@ -44,7 +44,7 @@
             Gets/Sets Length of Character Column
             </summary>
         </member>
-        <member name="P:CloudNDevOps.TerraformAgentDbor.Contracts.FixedCharacterColumnDefinition.MaximumLengthUnit">
+        <member name="P:CloudNDevOps.TerraformAgentDbor.Contracts.FixedCharacterColumnDefinition.LengthUnit">
             <summary>
             Gets/Sets Length Unit of Character Column
             </summary>

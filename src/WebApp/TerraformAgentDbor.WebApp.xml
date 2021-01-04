@@ -21,6 +21,12 @@
             </summary>
             <returns>Enumerable with list of table</returns>
         </member>
+        <member name="M:TerraformAgentDbor.WebApp.Controllers.TablesController.ReadTable(System.String,System.String,System.String)">
+            <summary>
+            Gets details of specific table
+            </summary>
+            <returns>Specific Table Object</returns>
+        </member>
         <member name="M:TerraformAgentDbor.WebApp.Controllers.TablesController.Create(System.String,System.String,CloudNDevOps.TerraformAgentDbor.Contracts.TableDefinition)">
             <summary>
             Creates new Table

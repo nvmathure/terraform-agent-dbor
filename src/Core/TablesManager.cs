@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using CloudNDevOps.TerraformAgentDbor.DatabaseInterface.Tables;
+using System.Linq;
 
 namespace CloudNDevOps.TerraformAgentDbor.Core
 {
@@ -44,6 +45,16 @@ namespace CloudNDevOps.TerraformAgentDbor.Core
             var instance = _instanceManager[instanceName];
             var tables = await _tablesRepository.GetTablesAsync(instance, owner, limit, offset);
             return _mapper.Map<TableDefinition[]>(tables);
+        }
+
+        /// <inheritdoc/>
+        public async Task<TableDefinition> GetAsync(string instanceName, string owner, string tableName)
+        {
+            var instance = _instanceManager[instanceName];
+            var tableDto = await _tablesRepository.GetTableAsync(instance, owner, tableName);
+            var tableDef =  _mapper.Map<TableDefinition>(tableDto);
+            tableDef.Columns = tableDto.Columns.Select(c => c.ToColumnDefinition(_mapper)).ToArray();
+            return tableDef;
         }
     }
 }

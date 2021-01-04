@@ -13,6 +13,6 @@
         /// <summary>
         /// Gets/Sets Length Unit of Character Column
         /// </summary>
-        public LenghtUnits MaximumLengthUnit { get; set; }
+        public LenghtUnits LengthUnit { get; set; }
     }
 }
